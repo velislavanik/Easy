@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Easy2</string>
+    <string name="app_name">Easy</string>
+    <string name="lost_connection">No internet connection</string>
 </resources>
