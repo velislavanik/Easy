@@ -256,7 +256,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             // Otherwise, the app can't download content--either because there is no network
             // connection (mobile or Wi-Fi), or because the pref setting is WIFI, and there
             // is no Wi-Fi connection. Sets refreshDisplay to false.
-            refreshDisplay = (WIFI.equals(sPref) && networkInfo != null && networkInfo.getType() == ConnectivityManager.TYPE_WIFI) || (networkInfo != null);
+            refreshDisplay = (WIFI.equals(sPref) && networkInfo != null && networkInfo.getType() == ConnectivityManager.TYPE_WIFI) || (networkInfo != null && networkInfo.isConnected());
            //  refreshDisplay=networkInfo.isConnected();
         }
     }
