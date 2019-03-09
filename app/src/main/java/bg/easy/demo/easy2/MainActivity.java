@@ -158,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
     // Uses AsyncTask subclass to download the XML feed from stackoverflow.com.
     public void loadPage() {
+      //
         if (((sPref.equals(ANY)) && (wifiConnected || mobileConnected))
                 || ((sPref.equals(WIFI)) && (wifiConnected))) {
             // AsyncTask subclass
@@ -245,6 +246,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             assert conn != null;
             NetworkInfo networkInfo = conn.getActiveNetworkInfo();
 
+
             // Checks the user prefs and the network connection. Based on the result, decides whether
             // to refresh the display or keep the current display.
             // If the userpref is Wi-Fi only, checks to see if the device has a Wi-Fi connection and sets refreshDisplay to true
@@ -254,7 +256,8 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             // Otherwise, the app can't download content--either because there is no network
             // connection (mobile or Wi-Fi), or because the pref setting is WIFI, and there
             // is no Wi-Fi connection. Sets refreshDisplay to false.
-            refreshDisplay = (WIFI.equals(sPref) && networkInfo != null && networkInfo.getType() == ConnectivityManager.TYPE_WIFI) || (ANY.equals(sPref) && networkInfo != null);
+            refreshDisplay = (WIFI.equals(sPref) && networkInfo != null && networkInfo.getType() == ConnectivityManager.TYPE_WIFI) || (networkInfo != null);
+           //  refreshDisplay=networkInfo.isConnected();
         }
     }
 }
